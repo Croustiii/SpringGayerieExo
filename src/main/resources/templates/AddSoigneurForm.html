@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Ajout d'un Soingneur</title>
+	</head>
+	
+	<body>
+		<h3>Ajout d'un Soigneur</h3>
+		
+		<form method = "POST" data-th-action="@{/AddSoigneur}" data-th-object="${soigneur}"  accept-charset="utf-8">
+			<div>
+				<label>NOM</label>
+				<input type="text" data-th-field="*{nom}">
+				<span data-th-errors = "*{nom}"></span>
+			</div>
+			<br>
+			<div>
+				<label>Numero</label>
+				<input type="text" data-th-field="*{numero}">
+				<span data-th-errors = "*{numero}"></span>
+			</div>
+			<br>
+			
+			<label>Date de Recrutement</label>
+			<input type="date" data-th-field="*{dateRecrutement}">
+			<!-- <span data-th-errors = "*{dateRecrutement}"></span> -->
+			
+			
+			<input type="submit">
+		</form>
+	
+	</body>
+	
+</html>

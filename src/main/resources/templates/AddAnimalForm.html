@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Creation Animal</title>
+	</head>
+	
+	<body>
+	
+		<form method = "POST" data-th-action="@{/PostAnimal}" data-th-object="${animal}"  accept-charset="utf-8">
+			<label>NOM</label>
+			<br>
+			<input type="text" data-th-field="*{nom}">
+			<span data-th-errors = "*{nom}"></span>
+			
+			<br>
+			<br>	
+					
+			<label>Description</label>
+			<br>
+			<input style="" type="text" data-th-field="*{description}">
+			
+			<br>
+			<br>
+						
+			<select name="regime" data-th-field="*{regime}">
+			  <option value="volvo">carnivore</option>
+			  <option value="saab">herbivore</option>
+			</select>
+			
+			<br><br>
+			<input type="submit">
+		</form>
+	
+	</body>
+	
+</html>
