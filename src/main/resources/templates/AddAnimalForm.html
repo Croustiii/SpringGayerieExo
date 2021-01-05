@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="utf-8">
 		<title>Creation Animal</title>
 	</head>
 	
 	<body>
 	
+		<h2>Formulaire d'ajout d'animal</h2>
+		<br>
 		<form method = "POST" data-th-action="@{/PostAnimal}" data-th-object="${animal}"  accept-charset="utf-8">
-			<label>NOM</label>
+			<label>Nom de l'animal</label>
 			<br>
 			<input type="text" data-th-field="*{nom}">
 			<span data-th-errors = "*{nom}"></span>
@@ -16,16 +18,25 @@
 			<br>
 			<br>	
 					
-			<label>Description</label>
+			<label>Description de l'animal</label>
 			<br>
-			<input style="" type="text" data-th-field="*{description}">
+			<input type="text" data-th-field="*{description}">
 			
 			<br>
 			<br>
-						
+			
+			<label>Espèce de l'animal</label>
+			<br>
+			<input type="text" data-th-field="*{espece}">
+			
+			
+			<br>
+			<br>
+			
+			<label>Régime alimentaire de l'animal</label>						
 			<select name="regime" data-th-field="*{regime}">
-			  <option value="volvo">carnivore</option>
-			  <option value="saab">herbivore</option>
+			  <option value="carnivore">carnivore</option>
+			  <option value="herbivore">herbivore</option>
 			</select>
 			
 			<br><br>

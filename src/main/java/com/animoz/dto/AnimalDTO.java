@@ -1,7 +1,7 @@
 package com.animoz.dto;
 
 import javax.validation.constraints.NotBlank;
-import com.animoz.entiteCorrection.RegimeCorr;
+import com.animoz.entiteCorrection.Regime;
 
 public class AnimalDTO {
 
@@ -9,9 +9,9 @@ public class AnimalDTO {
 	
 	private String description;
 	
-	private RegimeCorr regime;
+	private Regime regime;
 	
-	private String Espece;
+	private String espece;
 	
 	@NotBlank(message = "le nom de l'animal est obligatoire")
 	public String getNom() {
@@ -29,18 +29,18 @@ public class AnimalDTO {
 		this.description = description;
 	}
 	
-	public RegimeCorr getRegime() {
+	public Regime getRegime() {
 		return regime;
 	}
-	public void setRegime(RegimeCorr regime) {
+	public void setRegime(Regime regime) {
 		this.regime = regime;
 	}
 	
 	public String getEspece() {
-		return Espece;
+		return espece;
 	}
 	public void setEspece(String espece) {
-		Espece = espece;
+		this.espece = espece;
 	}
 	
 	

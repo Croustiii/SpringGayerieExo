@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class PopulationCorr {
+public class Population {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class PopulationCorr {
 
 	@ManyToOne
 	@JoinColumn(name = "animal_id")
-	private AnimalCorr animal;
+	private Animal animal;
 
 	public Long getId() {
 		return id;
@@ -35,11 +35,11 @@ public class PopulationCorr {
 		this.nombreIndividus = nombreIndividus;
 	}
 
-	public AnimalCorr getAnimal() {
+	public Animal getAnimal() {
 		return animal;
 	}
 
-	public void setAnimal(AnimalCorr animal) {
+	public void setAnimal(Animal animal) {
 		if(animal == null) {
 			throw new NullPointerException("L'animal ne peut pas être nul.");
 		}

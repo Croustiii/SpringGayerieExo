@@ -13,7 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class SoigneurCorr {
+public class Soigneur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class SoigneurCorr {
 	@JoinTable(name = "PopulationSoigneur", 
 	           joinColumns = @JoinColumn(name = "soigneur_id"), 
 	           inverseJoinColumns = @JoinColumn(name = "animal_id"))
-	private List<AnimalCorr> animaux = new ArrayList<>();
+	private List<Animal> animaux = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -60,15 +60,15 @@ public class SoigneurCorr {
 		this.dateRecrutement = dateRecrutement;
 	}
 
-	public List<AnimalCorr> getAnimaux() {
+	public List<Animal> getAnimaux() {
 		return animaux;
 	}
 
-	public void setAnimaux(List<AnimalCorr> animaux) {
+	public void setAnimaux(List<Animal> animaux) {
 		this.animaux = animaux;
 	}
 	
-	public void addAnimal(AnimalCorr animal) {
+	public void addAnimal(Animal animal) {
 		if(animal == null) {
 			throw new NullPointerException("L'animal ne doit pas être nul");
 		}

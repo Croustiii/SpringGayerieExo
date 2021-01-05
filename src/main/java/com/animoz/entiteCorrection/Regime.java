@@ -1,5 +1,5 @@
 package com.animoz.entiteCorrection;
 
-public enum RegimeCorr {
+public enum Regime {
 	carnivore, herbivore
 }

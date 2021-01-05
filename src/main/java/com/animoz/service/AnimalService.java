@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.animoz.dto.AnimalDTO;
-import com.animoz.entite.Animal;
+import com.animoz.entiteCorrection.Animal;
 import com.animoz.repository.AnimalRepository;
 
 @Service
@@ -36,11 +36,7 @@ public class AnimalService {
 	
 	public void AddAnimal(AnimalDTO animal) {
 		
-		animalRepository.AddAnimalCorrection(animal);
+		animalRepository.AddAnimal(animal);
 	}
-	
-	
-	
-	
 	
 }

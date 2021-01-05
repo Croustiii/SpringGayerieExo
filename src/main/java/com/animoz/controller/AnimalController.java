@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.animoz.dto.AnimalDTO;
-import com.animoz.entite.Animal;
+import com.animoz.entiteCorrection.Animal;
 import com.animoz.service.AnimalService;
 
 @Controller
@@ -62,6 +62,12 @@ public class AnimalController {
 //		}
 	
 		animalService.AddAnimal(animalDto);
+		
+		System.out.println("nom : " + animalDto.getNom());
+		System.out.println("espece : " +animalDto.getEspece());
+		System.out.println("description : " +animalDto.getDescription());
+		System.out.println("regime : " + animalDto.getRegime());
+		
 		
 		return "AddAnimalForm";
 	}

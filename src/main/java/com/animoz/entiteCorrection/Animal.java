@@ -3,6 +3,7 @@ package com.animoz.entiteCorrection;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class AnimalCorr {
+public class Animal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +26,18 @@ public class AnimalCorr {
 	private String description;
 	
 	@Enumerated(EnumType.STRING)
-	private RegimeCorr regime;
+	private Regime regime;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "espece_id")
-	private EspeceCorr espece;
+	private Espece espece;
 
 	@ManyToMany(mappedBy = "animaux")
-	private List<SoigneurCorr> soigneurs = new ArrayList<>();
+	private List<Soigneur> soigneurs = new ArrayList<>();
 
-	@OneToMany(mappedBy = "animal")
-	private List<PopulationCorr> populations = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+	private List<Population> populations = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -69,35 +71,35 @@ public class AnimalCorr {
 		this.description = description;
 	}
 
-	public RegimeCorr getRegime() {
+	public Regime getRegime() {
 		return regime;
 	}
 
-	public void setRegime(RegimeCorr regime) {
+	public void setRegime(Regime regime) {
 		this.regime = regime;
 	}
 
-	public EspeceCorr getEspece() {
+	public Espece getEspece() {
 		return espece;
 	}
 
-	public void setEspece(EspeceCorr espece) {
+	public void setEspece(Espece espece) {
 		this.espece = espece;
 	}
 
-	public List<SoigneurCorr> getSoigneurs() {
+	public List<Soigneur> getSoigneurs() {
 		return soigneurs;
 	}
 
-	public void setSoigneurs(List<SoigneurCorr> soigneurs) {
+	public void setSoigneurs(List<Soigneur> soigneurs) {
 		this.soigneurs = soigneurs;
 	}
 
-	public List<PopulationCorr> getPopulations() {
+	public List<Population> getPopulations() {
 		return populations;
 	}
 
-	public void setPopulations(List<PopulationCorr> populations) {
+	public void setPopulations(List<Population> populations) {
 		this.populations = populations;
 	}
 

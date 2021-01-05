@@ -21,13 +21,17 @@
 	<br>
 	
 	<h3> Formulaire de Recherche d'animal</h3>
+	<br>
+	
  	<form method = "POST" data-th-action="@{/Animal}" data-th-object="${animal}"  accept-charset="utf-8">
 		<label>Nom de l'animal</label>
 		<input type="text" data-th-field="*{nom}">
 		
 		<input type="submit">
 	</form>
+	
 	<span data-th-text="${resultatRecherche}"></span>
+	
 	<br>
 	
 	<div>
