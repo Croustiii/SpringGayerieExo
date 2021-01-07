@@ -7,12 +7,13 @@
 	
 	<body>
 	
-	<table>
-		<tbody>
+	<table style="border: solid 1px">
+		<tbody >
 			<tr data-th-each="animal : ${listeAnimaux}">
 				<td data-th-text = "${	animal.nom}"></td>
 				<td data-th-text = "${	animal.espece.nom}"></td>
 				<td data-th-text = "${	animal.regime}"></td>
+				<td><a data-th-href="@{/FicheAnimal/} +${animal.nom}">Fiche Animal</a> </td>
 			</tr>
 		</tbody>
 	

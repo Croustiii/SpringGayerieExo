@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.animoz.dto.AnimalDTO;
@@ -47,7 +48,7 @@ public class AnimalController {
 //			return afficherFormulaireCreation(animalDto);
 //		}
 		
-		String ResultatRecherche = animalService.GetAnimalByName(animalDto.getNom());
+		String ResultatRecherche = animalService.FindAnimalByName(animalDto.getNom());
 		
 		model.addAttribute("resultatRecherche", ResultatRecherche);
 		model.addAttribute("resultat",animalDto.getNom());
@@ -60,7 +61,7 @@ public class AnimalController {
 //			if (bindingResult.hasErrors()) {
 //			return afficherFormulaireCreation(animalDto);
 //		}
-	
+		
 		animalService.AddAnimal(animalDto);
 		
 		System.out.println("nom : " + animalDto.getNom());
@@ -72,7 +73,15 @@ public class AnimalController {
 		return "AddAnimalForm";
 	}
 
-	
+	@GetMapping(path="/FicheAnimal/{nomAnimal}")
+	public String AfficherAnimalDetails(Model model, @PathVariable String nomAnimal, @ModelAttribute("animal") AnimalDTO animalDto, BindingResult bindingResult) {
+		Animal result = animalService.GetAnimal(nomAnimal).get(0);
+		model.addAttribute("animal", result);
+		model.addAttribute("soigneurs", result.getSoigneurs());
+		
+		
+		return "DetailsAnimal";
+	}
 	
 	
 }

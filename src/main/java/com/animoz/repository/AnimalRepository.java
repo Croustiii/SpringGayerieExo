@@ -25,8 +25,7 @@ public class AnimalRepository {
 	}
 	
 	public List<Animal> GetAnimalByName(String nom) {
-		List<Animal> animaux = entityManager.createQuery("select a from Animal a where lower(a.nom) = lower(:nom)", Animal.class)
-                .setParameter("nom", nom)
+		List<Animal> animaux = entityManager.createQuery("select a from Animal a where lower(a.nom) like lower('%"+nom+"%')", Animal.class)
                 .getResultList();
 		return animaux;
 		

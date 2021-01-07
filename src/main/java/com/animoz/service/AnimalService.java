@@ -19,7 +19,7 @@ public class AnimalService {
 		return animalRepository.getListAnimaux();
 	}
 	
-	public String GetAnimalByName(String nom){
+	public String FindAnimalByName(String nom){
 		List<Animal> result = animalRepository.GetAnimalByName(nom);
 		
 		if (result.isEmpty()) {
@@ -32,6 +32,14 @@ public class AnimalService {
 			return "L'animal recherché est présent dans la base de données.";
 		}
 		return "";
+	}
+	
+	public List<Animal> GetAnimal(String name){
+		
+		List<Animal> result  = animalRepository.GetAnimalByName(name);
+		
+		return result;
+		
 	}
 	
 	public void AddAnimal(AnimalDTO animal) {

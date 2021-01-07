@@ -1,5 +1,6 @@
 package com.animoz.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,13 +44,14 @@ public class SoigneurController {
 		
 		soigneurService.AddSoigneur(soigneurDto.getNom(), 
 									soigneurDto.getNumero(), 
-									soigneurDto.getDateRecrutement());
+									LocalDate.parse(soigneurDto.getDateRecrutement()));
 		
 		
 		return "AddSoigneurForm";
 	}
 	
 	
+
 	
 	
 }

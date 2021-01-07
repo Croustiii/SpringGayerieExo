@@ -1,8 +1,5 @@
 package com.animoz.dto;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import javax.validation.constraints.NotBlank;
 
 public class SoigneurDTO {
@@ -12,7 +9,7 @@ public class SoigneurDTO {
 	
 	public String nom;
 	
-	public LocalDate dateRecrutement;
+	public String dateRecrutement;
 	
 	
 	@NotBlank(message = "Le numéro est obligatoire !")
@@ -32,10 +29,10 @@ public class SoigneurDTO {
 	}
 	
 	//@NotBlank(message = "La date de recrutement est obligatoire !")
-	public LocalDate getDateRecrutement() {
+	public String getDateRecrutement() {
 		return dateRecrutement;
 	}
-	public void setDateRecrutement(LocalDate dateRecrutement) {
+	public void setDateRecrutement(String dateRecrutement) {
 		this.dateRecrutement = dateRecrutement;
 	}
 	
